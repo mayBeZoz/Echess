@@ -70,8 +70,8 @@ export const getRockMovement = ({board,pieceCol,pieceColor,pieceRow}:params) => 
         }else {
             if (!isCurrentPieceSameColor) {
                 bottomSlots.push(`${currRow}-${pieceCol}`)
-                break
             }
+            break
         }
     }
     availableSlots = [...availableSlots,...bottomSlots]

@@ -2,8 +2,8 @@
     ["W-rock","W-bishop","W-horse","W-queen","W-king","W-horse","W-bishop","W-rock"],
     ["W-solider","W-solider","W-solider","W-solider","W-solider","W-solider","W-solider","W-solider"],
     ["empty","empty","empty","empty","empty","empty","empty","empty"],
-    ["empty","empty","empty","empty","W-rock","empty","empty","empty"],
-    ["empty","empty","B-rock","empty","empty","empty","W-rock","empty"],
+    ["empty","empty","empty","empty","empty","empty","empty","empty"],
+    ["empty","empty","empty","empty","empty","empty","empty","empty"],
     ["empty","empty","empty","empty","empty","empty","empty","empty"],
     ["B-solider","B-solider","B-solider","B-solider","B-solider","B-solider","B-solider","B-solider"],
     ["B-rock","B-bishop","B-horse","B-queen","B-king","B-horse","B-bishop","B-rock"]
