@@ -5,8 +5,7 @@ import {
     Children, 
     TPiece, 
     THandledPiece, 
-    TWhitePiece, 
-    TBlackPiece 
+
 } from "@/types";
 
 import { createContext, useContext, useEffect, useState } from "react";
@@ -27,7 +26,9 @@ export default function BoardProvider ({children}:Children) {
         }
     },[handledPiece])
 
-    
+    useEffect(()=>{
+        setBoard(boardData as TPiece[][]) // will be removed soon , just used to remove vercel deploy error
+    },[])
 
     return (
         <Context.Provider value={{

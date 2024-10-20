@@ -61,7 +61,7 @@ export const getRockMovement = ({board,pieceCol,pieceColor,pieceRow}:params) => 
     // check bottom slots
 
 
-    let bottomSlots:string[] = []
+    const bottomSlots:string[] = []
     for (let currRow = pieceRow+1; currRow < board.length;currRow++) {
         const currSlot = board[currRow][pieceCol]
         const isCurrentPieceSameColor = currSlot.split("-")[0] === pieceColor
