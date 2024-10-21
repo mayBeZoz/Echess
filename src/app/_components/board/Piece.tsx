@@ -17,8 +17,7 @@ function Piece({order,value}:TPieceProps) {
 
 
     const handleClick = () => {
-        const handledPiece = boardData?.handledPiece?.type
-        if (handledPiece !== value) {
+        if (boardData?.handledPiece?.position !== order) {
             boardData?.setHandledPiece({
                 type:value,
                 position:order
@@ -28,7 +27,9 @@ function Piece({order,value}:TPieceProps) {
         }
     }
 
-
+    const color = value.split("-")[0]
+    const type = value.split("-")[1]
+    const imgURL = `/assets/pieces/${type}-${color.toLocaleLowerCase()}.svg`
 
     return (
         <div
@@ -36,11 +37,10 @@ function Piece({order,value}:TPieceProps) {
             style={{
                 left:`${slotXPos - (100*(1/8)/2)}%`,
                 top:`${slotYPos - (100*(1/8)/2)}%`,
-                // transform:`translateX(${slotXPos - (100*(1/8)/2)}%) translateY(${slotYPos - (100*(1/8)/2)}%)`
             }} 
-            className={`absolute w-[60px] -translate-x-1/2 -translate-y-1/2 aspect-square bg-orange-200`}
+            className={`absolute z-40 w-[calc(100%/8)] -translate-x-1/2 -translate-y-1/2 aspect-square`}
         >
-            {value}
+            <img src={imgURL} alt={value} />
         </div>
     )
 }

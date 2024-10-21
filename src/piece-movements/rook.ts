@@ -8,34 +8,39 @@ type params = {
 }
 
 
-export const getRockMovement = ({board,pieceCol,pieceColor,pieceRow}:params) :string[]=> {
+export const getRookMovement = ({board,pieceCol,pieceColor,pieceRow}:params) => {
     let availableSlots:string[] = []
+    let piecesCanTake:string[] = []
+    //loop from left side of rock
 
-    //loop from left side or rock
-
+    let leftSlots:string[] = []
+    let leftPiecesCanTake:string[] = []
     for (let i = 0;i < pieceCol;i++) {
         const currSlot = board[pieceRow][i]
         const isCurrentPieceSameColor = currSlot.split("-")[0] === pieceColor
         if (currSlot === "empty") {
-            availableSlots.push(`${pieceRow}-${i}`)
+            leftSlots.push(`${pieceRow}-${i}`)
         }else {
-            availableSlots = []
+            leftSlots = []
+            leftPiecesCanTake = []
             if (!isCurrentPieceSameColor) {
-                availableSlots.push(`${pieceRow}-${i}`)
+                leftPiecesCanTake.push(`${pieceRow}-${i}`)
             }
         }
     }
 
     //loop from right side or rock
-
+    let rightSlots:string[] = []
+    let rightPiecesCanTake:string[] = []
     for (let i = pieceCol+1;i < board[pieceRow].length;i++) {
         const currSlot = board[pieceRow][i]
         const isCurrentPieceSameColor = currSlot.split("-")[0] === pieceColor
         if (currSlot === "empty") {
-            availableSlots.push(`${pieceRow}-${i}`)
+            rightSlots.push(`${pieceRow}-${i}`)
         }else {
             if (!isCurrentPieceSameColor) {
-                availableSlots.push(`${pieceRow}-${i}`)
+                // availableSlots.push(`${pieceRow}-${i}`)
+                rightPiecesCanTake.push(`${pieceRow}-${i}`)
             }
             break
         }
@@ -44,6 +49,7 @@ export const getRockMovement = ({board,pieceCol,pieceColor,pieceRow}:params) :st
     // check top slots
 
     let topSlots:string[] = []
+    let topPiecesCanTake:string[] = []
     for (let currRow = 0; currRow < pieceRow;currRow++) {
         const currSlot = board[currRow][pieceCol]
         const isCurrentPieceSameColor = currSlot.split("-")[0] === pieceColor
@@ -51,8 +57,9 @@ export const getRockMovement = ({board,pieceCol,pieceColor,pieceRow}:params) :st
             topSlots.push(`${currRow}-${pieceCol}`)
         }else {
             topSlots = []
+            topPiecesCanTake = []
             if (!isCurrentPieceSameColor) {
-                topSlots.push(`${currRow}-${pieceCol}`)
+                topPiecesCanTake.push(`${currRow}-${pieceCol}`)
             }
         }
     }
@@ -61,7 +68,8 @@ export const getRockMovement = ({board,pieceCol,pieceColor,pieceRow}:params) :st
     // check bottom slots
 
 
-    const bottomSlots:string[] = []
+    let bottomSlots:string[] = []
+    let bottomPiecesCanTake:string = ''
     for (let currRow = pieceRow+1; currRow < board.length;currRow++) {
         const currSlot = board[currRow][pieceCol]
         const isCurrentPieceSameColor = currSlot.split("-")[0] === pieceColor
@@ -69,13 +77,15 @@ export const getRockMovement = ({board,pieceCol,pieceColor,pieceRow}:params) :st
             bottomSlots.push(`${currRow}-${pieceCol}`)
         }else {
             if (!isCurrentPieceSameColor) {
-                bottomSlots.push(`${currRow}-${pieceCol}`)
+                bottomPiecesCanTake = `${currRow}-${pieceCol}`
             }
             break
         }
     }
-    availableSlots = [...availableSlots,...bottomSlots]
 
 
-    return availableSlots
+    return {
+        availableSlots:[...topSlots,...leftSlots,...rightSlots,...bottomSlots],
+        piecesCanTake:[bottomPiecesCanTake,...topPiecesCanTake,...rightPiecesCanTake,...leftPiecesCanTake]
+    }
 }

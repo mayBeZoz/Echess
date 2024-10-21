@@ -1,6 +1,7 @@
 import { getBishopMovement } from "./piece-movements/bishop";
 import { getKnightMovement } from "./piece-movements/knight";
-import { getRockMovement } from "./piece-movements/rock";
+import { getQueenMovement } from "./piece-movements/queen";
+import { getRookMovement } from "./piece-movements/rook";
 import { TBlackPiece, TBoard, TWhitePiece } from "./types";
 
 type TPieceInfo = {
@@ -10,7 +11,7 @@ type TPieceInfo = {
 
 
 
-export const getPieceMovement = (piece:TPieceInfo,board:TBoard) :string[] => {
+export const getPieceMovement = (piece:TPieceInfo,board:TBoard) => {
     const pieceColor = piece.type.split("-")[0]
     const pieceType = piece.type.split("-")[1]
 
@@ -25,26 +26,43 @@ export const getPieceMovement = (piece:TPieceInfo,board:TBoard) :string[] => {
     }
 
     switch(piece.type) {
-        case "W-rock":
-            return getRockMovement(params)
+        case "W-rook":
+            return getRookMovement(params)
         case "W-bishop":
             return getBishopMovement(params)
         case "W-knight":
             return getKnightMovement(params)
         case "W-queen":
+            return getQueenMovement(params)
         case "W-king":
+            return {
+                availableSlots:[],
+                piecesCanTake:[]
+            }
         case "W-pawn":
-        case "B-rock":
-            return getRockMovement(params)
+            return {
+                availableSlots:[],
+                piecesCanTake:[]
+            }
+        case "B-rook":
+            return getRookMovement(params)
         case "B-bishop":
             return getBishopMovement(params)
         case "B-knight":
             return getKnightMovement(params)
         case "B-queen":
+            return getQueenMovement(params)
         case "B-king":
+            return {
+                availableSlots:[],
+                piecesCanTake:[]
+            }
         case "B-pawn":
+            return {
+                availableSlots:[],
+                piecesCanTake:[]
+            }
     }
     
-    console.error('THIS PIECE HAS NO MOVEMENTS YET')
-    return []
+  
 }

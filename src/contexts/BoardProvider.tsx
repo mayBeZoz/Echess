@@ -19,10 +19,15 @@ export default function BoardProvider ({children}:Children) {
     const [board,setBoard] = useState<TPiece[][]>(boardData as TPiece[][])
     const [handledPiece,setHandledPiece] = useState<THandledPiece>(null)
     const [availableSlots,setAvailableSlots] = useState<string[]>([])
+    const [piecesCanTake,setPiecesCanTake] = useState<string[]>([])
 
     useEffect(()=>{
         if (handledPiece) {
-            setAvailableSlots(getPieceMovement(handledPiece,board))
+            const {availableSlots,piecesCanTake} = getPieceMovement(handledPiece,board)
+            setAvailableSlots(availableSlots)
+            setPiecesCanTake(piecesCanTake)
+        }else {
+            setAvailableSlots([])
         }
     },[handledPiece])
 
@@ -35,7 +40,8 @@ export default function BoardProvider ({children}:Children) {
             board,
             handledPiece,
             setHandledPiece,
-            availableSlots
+            availableSlots,
+            piecesCanTake
         }}>
             {children}
         </Context.Provider>

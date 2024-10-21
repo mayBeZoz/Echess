@@ -1,10 +1,10 @@
 [
-    ["W-rock","W-bishop","W-knight","W-queen","W-king","W-knight","W-bishop","W-rock"],
-    ["W-pawn","W-pawn","W-pawn","W-pawn","W-pawn","W-pawn","W-pawn","W-pawn"],
-    ["empty","empty","empty","empty","empty","empty","empty","empty"],
-    ["empty","empty","empty","empty","empty","empty","empty","empty"],
-    ["empty","empty","empty","empty","empty","empty","empty","empty"],
-    ["empty","empty","empty","empty","empty","empty","empty","empty"],
+    ["B-rook","B-knight","B-bishop","B-queen","B-king","B-bishop","B-knight","B-rook"],
     ["B-pawn","B-pawn","B-pawn","B-pawn","B-pawn","B-pawn","B-pawn","B-pawn"],
-    ["B-rock","B-bishop","B-knight","B-queen","B-king","B-knight","B-bishop","B-rock"]
+    ["empty","empty","empty","empty","empty","empty","empty","empty"],
+    ["empty","empty","empty","empty","empty","empty","empty","empty"],
+    ["empty","empty","empty","empty","empty","empty","empty","empty"],
+    ["empty","empty","empty","empty","empty","empty","empty","empty"],
+    ["W-pawn","W-pawn","W-pawn","W-pawn","W-pawn","W-pawn","W-pawn","W-pawn"],
+    ["W-rook","W-knight","W-bishop","W-queen","W-king","W-bishop","W-knight","W-rook"]
 ]

@@ -4,8 +4,8 @@ declare type Children = {
     readonly children: ReactNode
 }
 
-declare type TBlackPiece = "B-rock" | "B-bishop" | "B-knight" | "B-queen" | "B-king" | "B-pawn"
-declare type TWhitePiece = "W-rock" | "W-bishop" | "W-knight" | "W-queen" | "W-king" | "W-pawn"
+declare type TBlackPiece = "B-rook" | "B-bishop" | "B-knight" | "B-queen" | "B-king" | "B-pawn"
+declare type TWhitePiece = "W-rook" | "W-bishop" | "W-knight" | "W-queen" | "W-king" | "W-pawn"
 
 declare type TPiece = TBlackPiece | TWhitePiece | "empty"
 
@@ -20,5 +20,6 @@ declare type TBoardProviderData = {
     board: TBoard,
     handledPiece: THandledPiece,
     setHandledPiece: (p:THandledPiece) => void,
-    availableSlots:string[]
+    availableSlots:string[],
+    piecesCanTake:string[]
 } | undefined

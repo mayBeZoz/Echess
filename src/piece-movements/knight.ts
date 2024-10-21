@@ -7,9 +7,9 @@ type params = {
     pieceColor:string,
 }
 
-export const getKnightMovement = ({board,pieceCol,pieceColor,pieceRow}:params):string[] => {
+export const getKnightMovement = ({board,pieceCol,pieceColor,pieceRow}:params) => {
     const availableSlots:string[] = []
-
+    const piecesCanTake:string[] = []
     const positions = [
         {
             row:pieceRow+1,
@@ -49,11 +49,15 @@ export const getKnightMovement = ({board,pieceCol,pieceColor,pieceRow}:params):s
     positions.forEach(pos => {
         const currSlot = board[pos.row]?.[pos.col]
         const isCurrPieceSameColor = currSlot?.split("-")[0] === pieceColor
-        if (currSlot && !isCurrPieceSameColor) {
+        if (currSlot === "empty") {
             availableSlots.push(`${pos.row}-${pos.col}`)
+        }else if (!isCurrPieceSameColor) {
+            piecesCanTake.push(`${pos.row}-${pos.col}`)
         }
     })
-    console.log(availableSlots)
 
-    return availableSlots 
+    return {
+        availableSlots,
+        piecesCanTake
+    } 
 }
