@@ -1,4 +1,5 @@
 import { getBishopMovement } from "./piece-movements/bishop";
+import { getKnightMovement } from "./piece-movements/knight";
 import { getRockMovement } from "./piece-movements/rock";
 import { TBlackPiece, TBoard, TWhitePiece } from "./types";
 
@@ -29,6 +30,7 @@ export const getPieceMovement = (piece:TPieceInfo,board:TBoard) :string[] => {
         case "W-bishop":
             return getBishopMovement(params)
         case "W-knight":
+            return getKnightMovement(params)
         case "W-queen":
         case "W-king":
         case "W-pawn":
@@ -37,11 +39,12 @@ export const getPieceMovement = (piece:TPieceInfo,board:TBoard) :string[] => {
         case "B-bishop":
             return getBishopMovement(params)
         case "B-knight":
+            return getKnightMovement(params)
         case "B-queen":
         case "B-king":
         case "B-pawn":
     }
     
-
+    console.error('THIS PIECE HAS NO MOVEMENTS YET')
     return []
 }
