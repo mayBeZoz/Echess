@@ -11,20 +11,23 @@ function Piece({order,value}:TPieceProps) {
     const boardData = useBoardProvider()
 
     const row = +order.split('-')[0]
+    const col = +order.split('-')[1]
     const slot = +order.split('-')[1]
     const slotXPos = 100*((slot+1)/8)
     const slotYPos = 100*((row+1)/8)
 
+    const canBeTaken = boardData?.piecesCanTake.find(curr => curr === order)
 
     const handleClick = () => {
-        if (boardData?.handledPiece?.position !== order) {
+        if (boardData?.handledPiece && canBeTaken) {
+            boardData.moveHandledPieceTo(row,col)
+        }else if (boardData?.handledPiece?.position !== order) {
             boardData?.setHandledPiece({
                 type:value,
                 position:order
             })
-        }else {
-            boardData?.setHandledPiece(null)
-        }
+        } 
+        
     }
 
     const color = value.split("-")[0]

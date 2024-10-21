@@ -11,6 +11,7 @@ type TSlotProps = {
 
 function Slot({order,value}:TSlotProps) {
     const row = +order.split('-')[0]
+    const col = +order.split('-')[1]
     const slot = +order.split('-')[1]
 
     const isRowEven = row%2 === 0 
@@ -26,15 +27,17 @@ function Slot({order,value}:TSlotProps) {
     (!isRowEven && isSlotEven && "bg-zinc-500 hover:bg-zinc-600") || 
     (!isRowEven && !isSlotEven && "bg-white hover:bg-slate-300")
 
+
+
     return (
         <>  
-            <div slot-pos={order} className="relative w-[calc(100%/8)]">
+            <div onClick={() => boardData?.moveHandledPieceTo(row,col)} slot-pos={order} className="relative w-[calc(100%/8)]">
                 <div className={`
                         pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 z-20
                         ${isSlotAvailable &&'bg-green-600/50 w-[30px] aspect-square rounded-full'} 
-                        ${boardData?.handledPiece?.position === order || isSlotCanBeTaken && 'bg-green-600/50 w-full h-full'}
+                        ${(boardData?.handledPiece?.position === order || isSlotCanBeTaken) && 'bg-green-600/50 w-full h-full'}
                     `}
-                />
+                /> 
                 <div className={`flex text-2xl justify-center items-center aspect-square ${slotColor}`}/>
             </div>
             { value !== "empty" && <Piece value={value} order={order}/> }

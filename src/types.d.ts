@@ -15,11 +15,14 @@ declare type THandledPiece = {
 } | null
 
 declare type TBoard = TPiece[][]
+declare type TCurrentTurn = "black" | "white"
 
 declare type TBoardProviderData = {
     board: TBoard,
     handledPiece: THandledPiece,
     setHandledPiece: (p:THandledPiece) => void,
     availableSlots:string[],
-    piecesCanTake:string[]
+    piecesCanTake:string[],
+    currentTurn:TCurrentTurn,
+    moveHandledPieceTo:(row:number,col:number)=>void
 } | undefined

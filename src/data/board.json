@@ -3,7 +3,7 @@
     ["B-pawn","B-pawn","B-pawn","B-pawn","B-pawn","B-pawn","B-pawn","B-pawn"],
     ["empty","empty","empty","empty","empty","empty","empty","empty"],
     ["empty","empty","empty","empty","empty","empty","empty","empty"],
-    ["empty","empty","empty","empty","empty","empty","empty","empty"],
+    ["empty","empty","empty","W-queen","empty","empty","empty","empty"],
     ["empty","empty","empty","empty","empty","empty","empty","empty"],
     ["W-pawn","W-pawn","W-pawn","W-pawn","W-pawn","W-pawn","W-pawn","W-pawn"],
     ["W-rook","W-knight","W-bishop","W-queen","W-king","W-bishop","W-knight","W-rook"]
