@@ -13,7 +13,6 @@ type TPieceInfo = {
 
 export const getPieceMovement = (piece:TPieceInfo,board:TBoard) => {
     const pieceColor = piece.type.split("-")[0]
-    const pieceType = piece.type.split("-")[1]
 
     const row = +piece.position.split("-")[0]
     const col = +piece.position.split("-")[1]

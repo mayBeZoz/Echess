@@ -8,8 +8,8 @@ type params = {
 }
 
 const getTopLeftMovements = ({board,pieceCol,pieceColor,pieceRow}:params) => {
-    let slots:string[] = []
-    let piecesCanTake:string[] = []
+    const slots:string[] = []
+    const piecesCanTake:string[] = []
     //loop over top left side
     let currRow = pieceRow -1 
     let currCol = pieceCol -1
@@ -37,8 +37,8 @@ const getTopLeftMovements = ({board,pieceCol,pieceColor,pieceRow}:params) => {
 
 
 const getTopRightMovements = ({board,pieceCol,pieceColor,pieceRow}:params) => {
-    let slots:string[] = []
-    let piecesCanTake:string[] = []
+    const slots:string[] = []
+    const piecesCanTake:string[] = []
 
     //loop over top right side
     let currRow = pieceRow -1
@@ -68,8 +68,8 @@ const getTopRightMovements = ({board,pieceCol,pieceColor,pieceRow}:params) => {
 
 
 const getBottomRightMovements = ({board,pieceCol,pieceColor,pieceRow}:params) => {
-    let slots:string[] = []
-    let piecesCanTake:string[] = []
+    const slots:string[] = []
+    const piecesCanTake:string[] = []
 
     //loop over bottom right side
     let currRow = pieceRow +1
@@ -96,8 +96,8 @@ const getBottomRightMovements = ({board,pieceCol,pieceColor,pieceRow}:params) =>
 }
 
 const getBottomLeftMovements = ({board,pieceCol,pieceColor,pieceRow}:params) => {
-    let slots:string[] = []
-    let piecesCanTake:string[] = []
+    const slots:string[] = []
+    const piecesCanTake:string[] = []
 
     //loop over bottom left side
     let currRow = pieceRow +1

@@ -9,8 +9,7 @@ type params = {
 
 
 export const getRookMovement = ({board,pieceCol,pieceColor,pieceRow}:params) => {
-    let availableSlots:string[] = []
-    let piecesCanTake:string[] = []
+    
     //loop from left side of rock
 
     let leftSlots:string[] = []
@@ -30,8 +29,8 @@ export const getRookMovement = ({board,pieceCol,pieceColor,pieceRow}:params) => 
     }
 
     //loop from right side or rock
-    let rightSlots:string[] = []
-    let rightPiecesCanTake:string[] = []
+    const rightSlots:string[] = []
+    const rightPiecesCanTake:string[] = []
     for (let i = pieceCol+1;i < board[pieceRow].length;i++) {
         const currSlot = board[pieceRow][i]
         const isCurrentPieceSameColor = currSlot.split("-")[0] === pieceColor
@@ -39,7 +38,6 @@ export const getRookMovement = ({board,pieceCol,pieceColor,pieceRow}:params) => 
             rightSlots.push(`${pieceRow}-${i}`)
         }else {
             if (!isCurrentPieceSameColor) {
-                // availableSlots.push(`${pieceRow}-${i}`)
                 rightPiecesCanTake.push(`${pieceRow}-${i}`)
             }
             break
@@ -63,12 +61,8 @@ export const getRookMovement = ({board,pieceCol,pieceColor,pieceRow}:params) => 
             }
         }
     }
-    availableSlots = [...availableSlots,...topSlots]
 
-    // check bottom slots
-
-
-    let bottomSlots:string[] = []
+    const bottomSlots:string[] = []
     let bottomPiecesCanTake:string = ''
     for (let currRow = pieceRow+1; currRow < board.length;currRow++) {
         const currSlot = board[currRow][pieceCol]
