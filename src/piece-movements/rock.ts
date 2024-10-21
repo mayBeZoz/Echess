@@ -8,7 +8,7 @@ type params = {
 }
 
 
-export const getRockMovement = ({board,pieceCol,pieceColor,pieceRow}:params) => {
+export const getRockMovement = ({board,pieceCol,pieceColor,pieceRow}:params) :string[]=> {
     let availableSlots:string[] = []
 
     //loop from left side or rock

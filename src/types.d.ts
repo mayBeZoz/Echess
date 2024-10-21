@@ -4,8 +4,8 @@ declare type Children = {
     readonly children: ReactNode
 }
 
-declare type TBlackPiece = "B-rock" | "B-bishop" | "B-horse" | "B-queen" | "B-king" | "B-solider"
-declare type TWhitePiece = "W-rock" | "W-bishop" | "W-horse" | "W-queen" | "W-king" | "W-solider"
+declare type TBlackPiece = "B-rock" | "B-bishop" | "B-knight" | "B-queen" | "B-king" | "B-pawn"
+declare type TWhitePiece = "W-rock" | "W-bishop" | "W-knight" | "W-queen" | "W-king" | "W-pawn"
 
 declare type TPiece = TBlackPiece | TWhitePiece | "empty"
 

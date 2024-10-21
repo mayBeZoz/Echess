@@ -1,3 +1,4 @@
+import { getBishopMovement } from "./piece-movements/bishop";
 import { getRockMovement } from "./piece-movements/rock";
 import { TBlackPiece, TBoard, TWhitePiece } from "./types";
 
@@ -15,15 +16,32 @@ export const getPieceMovement = (piece:TPieceInfo,board:TBoard) :string[] => {
     const row = +piece.position.split("-")[0]
     const col = +piece.position.split("-")[1]
 
-
-    if (pieceType === "rock") {
-        return getRockMovement({
-            board,
-            pieceCol:col,
-            pieceColor,
-            pieceRow:row
-        })
+    const params = {
+        board,
+        pieceCol:col,
+        pieceColor,
+        pieceRow:row
     }
+
+    switch(piece.type) {
+        case "W-rock":
+            return getRockMovement(params)
+        case "W-bishop":
+            return getBishopMovement(params)
+        case "W-knight":
+        case "W-queen":
+        case "W-king":
+        case "W-pawn":
+        case "B-rock":
+            return getRockMovement(params)
+        case "B-bishop":
+            return getBishopMovement(params)
+        case "B-knight":
+        case "B-queen":
+        case "B-king":
+        case "B-pawn":
+    }
+    
 
     return []
 }

@@ -16,7 +16,7 @@ function Board() {
                     const row = Math.floor(idx / cols); 
                     const col = idx % cols; 
                     return (
-                        <Slot key={idx} order={`${row}-${col}`} value={slot}/>
+                        <Slot key={`${row}-${col}`} order={`${row}-${col}`} value={slot}/>
                     )
                 })
             }
